@@ -13,16 +13,13 @@ public class Main {
 
         // List all files in the directory
         File[] filesTEMP = folder.listFiles();
-        File[] files = new File[filesTEMP.length - 1];
-        int i = 0;
-        for (File file : filesTEMP) {
-            if (file.getName().endsWith(".jar")) {
-                continue;
-            } else {
-                files[i] = file;
-                i++;
-            }
+        if (filesTEMP == null || filesTEMP.length == 0) {
+            JOptionPane.showMessageDialog(null, "No files found in the current directory.", "File Renamer", JOptionPane.INFORMATION_MESSAGE);
+            return;
         }
+        File[] files = java.util.Arrays.stream(filesTEMP)
+            .filter(file -> file != null && !file.getName().endsWith(".jar"))
+            .toArray(File[]::new);
         fileList.append("PLEASE ENSURE ALL FILES ARE THE SAME TYPE\nFiles to rename:\n");
         for (File file : files) {
                 fileList.append(file.getName()).append("\n");
