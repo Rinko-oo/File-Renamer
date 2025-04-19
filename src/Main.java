@@ -34,9 +34,18 @@ public class Main {
         // Get new title, prefix, and starting installation from user
         String newTitle = JOptionPane.showInputDialog(null, "Enter title of the series:", "File Renamer", JOptionPane.QUESTION_MESSAGE);
         System.out.println("New title: " + newTitle);
+        if (newTitle == null) {
+            cancelProgram();
+        }
         String prefix = JOptionPane.showInputDialog(null, "Enter prefix of each installation:", "File Renamer", JOptionPane.QUESTION_MESSAGE);
+        if (prefix == null) {
+            cancelProgram();
+        }
         System.out.println("Prefix: " + prefix);
         String startString = JOptionPane.showInputDialog(null, "Enter first installation:", "File Renamer", JOptionPane.QUESTION_MESSAGE);
+        if (startString == null) {
+            cancelProgram();
+        }
         int start = Integer.parseInt(startString);
         System.out.println("Start: " + start);
         // Get preview of renamed files
@@ -55,5 +64,11 @@ public class Main {
         } else {
             JOptionPane.showMessageDialog(null, "Operation Cancelled", "File Renamer", JOptionPane.INFORMATION_MESSAGE);
         }
+    }
+
+    // method to cancel program if closed\
+    static void cancelProgram() {
+        JOptionPane.showMessageDialog(null, "Operation Cancelled", "File Renamer", JOptionPane.INFORMATION_MESSAGE);
+        System.exit(0);
     }
 }
