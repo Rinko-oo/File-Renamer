@@ -1,4 +1,4 @@
-To use this JAR file, you must have the Java Runtime Environment (JRE) installed.
+To use this JAR file, you must have JDK 25 installed.
 
 INSTRUCTIONS
 1. Put the JAR file into the folder of items that you want to rename
